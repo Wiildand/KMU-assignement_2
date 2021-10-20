@@ -35,7 +35,7 @@ private:
     glm::vec2 _pointStart;
     glm::vec2 _pointEnd;
 
-    void _drawSmoothPoint(const glm::vec2 &vector, const float pointSize) const;
+    void _drawSmoothPoint(const glm::vec2 &vector, const float &pointSize) const;
 };
 
 

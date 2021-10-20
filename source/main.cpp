@@ -9,6 +9,11 @@
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 800
 
+/**
+ * @function displayAxis
+ * @desc Method to display the different axis in the window
+ *
+ */
 void displayAxis() {
     glClear(GL_COLOR_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
@@ -34,24 +39,35 @@ void displayAxis() {
     glFlush();
 }
 
-
-void exerciseMidPoint(GLFWwindow *window) {
+/**
+ * @function exerciseMidPoint
+ * @desc Function to create and display the MidPoint Exercice
+ *
+ */
+void exerciseMidPoint() {
     std::cout << "exerciseMidPoint" << std::endl;
     MidPoint midPoint(glm::vec2(-2, 6), glm::vec2(2, 12));
 
     midPoint.draw();
 }
 
-void exerciseHomogeneousCoordinates(GLFWwindow *window) {
-    std::cout << "exerciseHomogeneousCoordinates" << std::endl;
-}
-
-
+/**
+ * @function processInput
+ * @desc Function to manage the different style of input only ESCAPE is available to leave the program
+ *
+ * @param {GLFWwindow *} window Window active by OpenGL
+ */
 void processInput(GLFWwindow *window) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, true);
 }
 
+/**
+ * @function initGlwWindow
+ * @desc Initialization of the structure GLFWwindow
+ *
+ * @returns {GLFWwindow *} Structure GLFWwindow setup correctly
+ */
 GLFWwindow *initGlwWindow() {
     GLFWwindow *window;
     if (!glfwInit()) {
@@ -82,7 +98,7 @@ int main() {
 
         processInput(window);
         displayAxis();
-        exerciseMidPoint(window);
+        exerciseMidPoint();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
